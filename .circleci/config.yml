@@ -7,7 +7,7 @@ jobs: # a collection of steps
     docker: # run the steps with Docker
       - image: circleci/node # ...with this image as the primary container; this is where all `steps` will run
     steps: # a collection of executable commands
-      - checkout # special step to check out source code to working directory
+      - checkout: # special step to check out source code to working directory
       - run:
           name: update-npm
           command: ‘sudo npm install -g npm@latest’
@@ -22,4 +22,4 @@ jobs: # a collection of steps
           command: snyk auth $SNYK_TOKEN
       - run: # run snyk test - run snyk test
           name: snyk test
-          command: snyk test 
+          command: snyk test
